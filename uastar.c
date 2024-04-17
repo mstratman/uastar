@@ -178,7 +178,7 @@ uint8_t path_finder_find_step(struct path_finder *path_finder, void *data)
 						path_finder->g_score[n] = tmp_g_score;
 						path_finder->f_score[n] = tmp_g_score + path_finder_heuristic(path_finder, n);
 						if (path_finder->score_func != NULL) {
-							path_finder->f_score[n] = path_finder->f_score[n] + path_finder->score_func(path_finder, n / path_finder->cols, n % path_finder->cols, data);
+							path_finder->f_score[n] = path_finder->f_score[n] + path_finder->score_func(path_finder, n % path_finder->cols, n / path_finder->cols, data);
 						}
 						path_finder->state[n] = path_finder->state[n] | PATH_FINDER_MASK_OPEN;
 					}
